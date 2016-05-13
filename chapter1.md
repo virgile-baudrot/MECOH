@@ -73,7 +73,7 @@ fibo_seq
 # testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
 
 # Test if student as called the function c()
-test_function("c",
+test_function("c", args = "x",
               not_called_msg = "You didn't call `c()`!")
 
 # Test the assignation of the two first elements
@@ -84,8 +84,8 @@ test_output_contains("fibo_seq")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
+#test_function("plot", args = "x")
+#test_function("plot", args = "y")
 
 # Checks whether the student's submission generated an error.
 test_error()  
