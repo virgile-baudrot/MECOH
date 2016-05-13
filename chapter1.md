@@ -14,9 +14,6 @@ Start simply. Just imagine one heterosexual couple of rabbit, giving birth to tw
 
 NOTE: explantation of how to build the sequence. The biological hypothesis! and giving a picture named the `fibonacci_sequence`.
 
-We name the sequence **Fibo_n**. **Fibo** for Fibonacci, and the underscore **n** give the generation. **Fibo_n** is a sequence of the number of couple.
-Example: **Fibo_0=1** is the initial couple. **Fibo_1=1** is the number of couple at the first generation. **Fibo_2=2**, **Fibo_2=3**, **Fibo_4=5**, **Fibo_5=8**, ...
-
 *** =instructions
 - Check out the picture `fibonacci_sequence`.
 - Start by create a `vector` object named `fibo_seq` and give a number to the two first terms of the sequence.
@@ -33,9 +30,6 @@ Example: **Fibo_0=1** is the initial couple. **Fibo_1=1** is the number of coupl
 generation = 10
 
 # vector object and 2 firs elements of the sequence
-fibo_seq = 
-fibo_seq[1] = 
-fibo_seq[2] = 
 
 # make a loop for
 
@@ -48,9 +42,6 @@ fibo_seq[2] =
 generation = 10
 
 # vector object and 2 first elements of the sequence
-fibo_seq = 
-fibo_seq[1] = 
-fibo_seq[2] = 
 
 # make a loop for
 
