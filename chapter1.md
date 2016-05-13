@@ -55,9 +55,7 @@ generation = 10
 generation = 10
 
 # vector object and 2 first elements of the sequence
-fibo_seq = c()
-fibo_seq[1] = 1
-fibo_seq[2] = 1
+fibo_seq = c(1,1)
 
 # make a loop for
 for (i in 3:generation){
@@ -79,8 +77,7 @@ test_function("c",
               not_called_msg = "You didn't call `c()`!")
 
 # Test the assignation of the two first elements
-test_object("fibo_seq[1]")
-test_object("fibo_seq[2]")
+test_object("fibo_seq[1:2]")
 
 # Test the output of the sequence
 test_output_contains("fibo_seq")
