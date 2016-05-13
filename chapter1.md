@@ -25,27 +25,14 @@ NOTE: explantation of how to build the sequence. The biological hypothesis! and 
 - For the third instruction, the writing of a for loop is: `for (i in 3:n) { }`.
 - For the plot, use `plot(x = ..., y = ...)`.
 
-*** =pre_exercise_code
-```{r}
-generation = 10
-
-# vector object and 2 firs elements of the sequence
-
-# make a loop for
-
-# Print the sequence
-
-```
-
 *** =sample_code
 ```{r}
+# Let 10 generations
 generation = 10
 
 # vector object and 2 first elements of the sequence
 
-# make a loop for
-
-# Print the sequence
+# Make a loop for
 
 ```
 
@@ -61,9 +48,6 @@ fibo_seq = c(1,1)
 for (i in 3:generation){
   fibo_seq[i] = fibo_seq[i-1]+fibo_seq[i-2]
 }
-
-# Print the sequence
-fibo_seq
 ```
 
 *** =sct
@@ -73,8 +57,8 @@ fibo_seq
 # testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
 
 # Test if student as called the function c()
-test_function("c", args = "x",
-              not_called_msg = "You didn't call `c()`!")
+#test_function("c", args = "x",
+#              not_called_msg = "You didn't call `c()`!")
 
 # Test the assignation of the two first elements
 test_object("fibo_seq[1:2]")
@@ -94,25 +78,21 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:59af007e54
-## Analyze movie ratings
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d1fb2032c1
 ## A really bad movie
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+Have a look at the plot that showed up in the viewer to the right.
+The sequence of point is converging toward the value of golden ratio `(1+5^(1/2))/2=1.618...`.
+Which sequence using the Fibonacci's sequence `Fib[n]` converge toward the golden ratio?
 
 *** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
+- `Fib[n]/Fib[n-1]`
+- `Fib[n]/Fib[n-1]^(1/2)`
+- `(1+Fib[n]^(1/2))/2`
+- `Fib[n]/(Fib[n-1]+Fib[n-2])`
 
 *** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
+Remeber the Fibonacci's sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765
 
 *** =pre_exercise_code
 ```{r}
@@ -120,13 +100,21 @@ Have a look at the plot. Which color does the point with the lowest rating have?
 
 # 1. Preload a dataset. The code below will read the csv that is stored at the URL's location.
 # The movies variable will be available in the user's console.
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
+#movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
+generation = seq(1,20,1)
+fibo_seq=c(1,1) ; golden_ratio=c(1,1)
+for (i in 3:length(generation)){
+  fibo_seq[i] = fibo_seq[i-1]+fibo_seq[i-2]
+  golden_ratio[i]=fibo_seq[i]/fibo_seq[i-1]
+}
 
 # 2. Pre-load packages, so that users don't have to do this manually.
 library(ggplot2)
 
 # 3. Create a plot in the viewer, that students can check out while reading the exercise
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
+ggplot()+theme_bw()+
+  geom_point(aes(x=generation,y=golden_ratio))+
+  geom_hline(yintercept = (1+sqrt(5))/2)
 ```
 
 *** =sct
@@ -139,7 +127,13 @@ msg_bad <- "That is not correct!"
 msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
 
 # Use test_mc() to grade multiple choice exercises. 
-# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the correct option (Action, option 1 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:59af007e54
+## Analyze movie ratings
+
+*** =video_link
+//player.vimeo.com/video/154783078
