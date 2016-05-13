@@ -53,9 +53,7 @@ fibo_seq[1] =
 fibo_seq[2] = 
 
 # make a loop for
-for ( ) { 
 
-}
 # Print the sequence
 
 ```
