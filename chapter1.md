@@ -48,6 +48,8 @@ fibo_seq = c(1,1)
 for (i in 3:generation){
   fibo_seq[i] = fibo_seq[i-1]+fibo_seq[i-2]
 }
+
+fibo_seq
 ```
 
 *** =sct
