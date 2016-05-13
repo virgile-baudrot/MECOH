@@ -60,8 +60,6 @@ for (i in 3:generation){
 #test_function("c", args = "x",
 #              not_called_msg = "You didn't call `c()`!")
 
-# Test the assignation of the two first elements
-test_object("fibo_seq[1:2]")
 
 # Test the output of the sequence
 test_output_contains("fibo_seq")
@@ -79,7 +77,7 @@ success_msg("Good work!")
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d1fb2032c1
-## A really bad movie
+## The Golden Ratio
 
 Have a look at the plot that showed up in the viewer to the right.
 The sequence of point is converging toward the value of golden ratio `(1+5^(1/2))/2=1.618...`.
@@ -92,7 +90,7 @@ Which sequence using the Fibonacci's sequence `Fib[n]` converge toward the golde
 - `Fib[n]/(Fib[n-1]+Fib[n-2])`
 
 *** =hint
-Remeber the Fibonacci's sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765
+Remember the Fibonacci's sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765
 
 *** =pre_exercise_code
 ```{r}
@@ -124,7 +122,7 @@ ggplot()+theme_bw()+
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
+msg_success <- "Exactly!"
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 1 in the instructions) to correct.
